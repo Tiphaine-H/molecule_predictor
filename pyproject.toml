@@ -1,0 +1,15 @@
+[project]
+name = "molecule-predictor"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Tiphaine H", email = "t.helmer@pi2r.net" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "deepchem>=2.8.0",
+    "tensorflow>=2.21.0",
+    "torch>=2.14.0",
+]
+
+

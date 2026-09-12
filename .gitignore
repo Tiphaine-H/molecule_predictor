@@ -1,3 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+
+Notes.odt
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
