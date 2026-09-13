@@ -6,7 +6,7 @@ __pycache__/
 .~lock.Notes.odt#
 Notes.odt
 
-
+notebooks/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
