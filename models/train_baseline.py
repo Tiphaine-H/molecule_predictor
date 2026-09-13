@@ -7,18 +7,18 @@ import matplotlib.pyplot as plt
 
 from featurizers.fingerprints import *
 
-data = pd.read_csv("data/esol.csv")
+def prepare_features(csv_path):
+    df = pd.read_csv(csv_path)
+    df["fp"] = [smiles_to_fp(s) for s in df["smiles"]]
+    X = np.stack(df["fp"].values)
+    y = df["solubility"].values
+    return X, y
 
-data["fp"] = [smiles_to_fp(k) for k in data["smiles"]]
+X_train, y_train = prepare_features("data/esol_train.csv")
+X_test, y_test = prepare_features("data/esol_test.csv")
 
-X, y = data['fp'], data['solubility']
-
-# move to numpy structures to be exploitable with sklearn
-X = np.stack(data['fp'].values)
-y = y.values
-
-# fixing random_state to get reproducible results to know if we're improving
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+# # fixing random_state to get reproducible results to know if we're improving
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # REGRESSION RANDOM FOREST:
 regr = RandomForestRegressor(max_depth=2, random_state=0)
