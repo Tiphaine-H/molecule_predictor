@@ -13,4 +13,10 @@ dependencies = [
     "torch>=2.14.0",
 ]
 
+[dependency-groups]
+dev = [
+    "deepchem>=2.8.0",
+    "jupyterlab>=4.6.3",
+]
+
 
