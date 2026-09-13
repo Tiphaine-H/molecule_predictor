@@ -21,7 +21,7 @@ X_test, y_test = prepare_features("data/esol_test.csv")
 # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # REGRESSION RANDOM FOREST:
-regr = RandomForestRegressor(max_depth=2, random_state=0)
+regr = RandomForestRegressor(n_estimators=200, random_state=0)
 regr.fit(X_train, y_train)
 
 y_pred = regr.predict(X_test)
