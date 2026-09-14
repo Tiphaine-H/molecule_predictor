@@ -12,6 +12,7 @@ dependencies = [
     "rdkit>=2026.3.6",
     "tensorflow>=2.21.0",
     "torch>=2.14.0",
+    "xgboost>=3.2.0",
 ]
 
 [dependency-groups]

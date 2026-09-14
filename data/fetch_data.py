@@ -1,6 +1,6 @@
 import deepchem as dc
 
-tasks, datasets, transformers = dc.molnet.load_delaney(featurizer='Raw', splitter="random")
+tasks, datasets, transformers = dc.molnet.load_delaney(featurizer='Raw', splitter="scaffold")
 df_train = datasets[0].to_dataframe()
 df_test = datasets[1].to_dataframe()
 

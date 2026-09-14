@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import root_mean_squared_error, r2_score
+import xgboost as xgb
 import matplotlib.pyplot as plt
 
 from featurizers.fingerprints import *
@@ -22,12 +23,27 @@ def random_forest(X_train, y_train):
     return model
 
 
+def xgboost_model(X_train, y_train):
+    params = {
+        'objective': 'reg:squarederror',
+        'max_depth': 3,
+        'learning_rate': 0.1,
+        'n_estimators': 100,
+        'subsample': 0.8,
+        'colsample_bytree': 0.8,
+        'random_state': 42
+    }
+    model = xgb.XGBRegressor(**params)
+    model.fit(X_train, y_train)
+    return model
+
+
 def main():
 
     X_train, y_train = prepare_features("data/esol_train.csv")
     X_test, y_test = prepare_features("data/esol_test.csv")
 
-    model = random_forest(X_train, y_train)
+    model = xgboost_model(X_train, y_train)
     y_pred = model.predict(X_test)
 
     # EVALUATION
