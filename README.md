@@ -20,6 +20,7 @@ I tested two ways of splitting the data: randomly, and by molecular scaffold (gr
 
 https://arxiv.org/pdf/2606.08825
 
+--> RMSE around 1.083 for random split versus 1.492 for scaffold split using fingerprint-only features
 
 ## Results
 
